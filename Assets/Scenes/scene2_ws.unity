@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5273009dab69f4b388f5317fe1cbc385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverUrl: ws://192.168.8.139:8082/HEART_RATE
+  serverUrl: wss://2582-163-143-51-66.ngrok-free.app/HEART_RATE
   Status: unknown
   dataMessage:
     type: 
