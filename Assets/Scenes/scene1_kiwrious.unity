@@ -232,7 +232,7 @@ MonoBehaviour:
   minLux: 35
   maxLux: 2894
   lightSource: {fileID: 0}
-  sensorLuxValue: 0
+  sensorValue: 0
   multiplier: 10
 --- !u!1 &705507993
 GameObject:
