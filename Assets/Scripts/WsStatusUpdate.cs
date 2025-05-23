@@ -3,30 +3,31 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+[RequireComponent(typeof(TextMeshProUGUI))]
 public class WsStatusUpdate : MonoBehaviour
 {
     private const string LOG_PREFIX = "[WsStatusUpdate]";
 
     public WebSocketClient webSocketClient;
 
-    TextMeshPro text;
+    public TextMeshProUGUI text;
 
     void Start()
     {
         Log("Starting ");
 
-        text = GetComponent<TextMeshPro>();
+        text = GetComponent<TextMeshProUGUI>();
         text.text = "starting..";
 
-        if (webSocketClient == null) 
+        if (webSocketClient == null)
         {
             Log("WebSocketClient not assigned, searching for 'ws' tag");
-            
+
             var ws = GameObject.FindWithTag("ws");
-            if (ws == null) 
+            if (ws == null)
             {
                 Log("No 'ws' GameObject found", LogLevel.Warning);
-                
+
                 text.text = "No 'ws' found";
                 return;
             }
@@ -41,13 +42,14 @@ public class WsStatusUpdate : MonoBehaviour
 
     void Update()
     {
-        if (webSocketClient!=null) {
+        if (webSocketClient != null)
+        {
             text.text = webSocketClient.serverUrl + " " + webSocketClient.Status;
         }
-        
+
     }
 
- // Log level enum for different types of logging
+    // Log level enum for different types of logging
     private enum LogLevel
     {
         Info,
@@ -59,7 +61,7 @@ public class WsStatusUpdate : MonoBehaviour
     private void Log(string message, LogLevel level = LogLevel.Info, Object context = null)
     {
         string formattedMessage = $"{LOG_PREFIX} {message}";
-        
+
         switch (level)
         {
             case LogLevel.Info:
